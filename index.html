@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Martín Carvajal | Compositor</title>
+    <!-- Fuente elegante para el sitio -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Enlace al Favicon del sitio -->
+<link rel="icon" type="image/x-icon" href="IMG/favicom.jpeg">
+    
+    <!-- ESTILOS CSS INTEGRADOS (Garantiza que funcione sin archivos externos) -->
+    <style>
+        :root {
+            --bg-color: #0d0f12;
+            --card-bg: #161a22;
+            --accent-color: #4f46e5;
+            --accent-hover: #6366f1;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: #242936;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.7;
+            padding-top: 80px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* --- Encabezado / Nav --- */
+        header {
+            background-color: rgba(13, 15, 18, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo .name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo .title {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--text-main);
+        }
+
+        /* --- Sección Hero --- */
+        .hero {
+            padding: 80px 0 40px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, #ffffff, #9ca3af);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* --- Estilos de Secciones y Tarjetas --- */
+        .section {
+            margin: 40px 0;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 35px;
+        }
+
+        h2, h3, h4, h5 {
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        strong {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        /* --- Diseño Bio con Imagen --- */
+        .bio-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            align-items: stretch;
+        }
+
+        .bio-image-container {
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            height: 100%;
+        }
+
+        .bio-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* --- Diseños en Rejilla --- */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* --- Sección de Discografía --- */
+        .discography-intro {
+            margin-bottom: 30px;
+        }
+
+        .disco-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 25px;
+        }
+
+        .disco-item {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .disco-item:hover {
+            border-color: var(--border-color);
+            background: rgba(255, 255, 255, 0.04);
+            transform: translateY(-4px);
+        }
+
+        .album-link {
+            display: block;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .album-cover-wrapper {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .album-cover {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .disco-item:hover .album-cover {
+            transform: scale(1.04);
+        }
+
+        .disco-item h5 {
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .disco-item .alias {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--accent-color);
+            font-weight: 400;
+        }
+
+        .single-tag {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        .bandcamp-link-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .btn-bandcamp {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-bandcamp:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* --- Línea de tiempo --- */
+        .timeline {
+            margin-top: 30px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+
+        .timeline ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .timeline li {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+
+        .timeline .date {
+            background-color: var(--accent-color);
+            color: #ffffff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        /* --- Pie de página --- */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid var(--border-color);
+            margin-top: 60px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* --- Adaptabilidad (Responsive) --- */
+        @media (max-width: 768px) {
+            .header-flex {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            body {
+                padding-top: 120px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .bio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .bio-image-container {
+                height: 300px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline li {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Encabezado / Navegación -->
+    <header>
+        <div class="container header-flex">
+            <div class="logo">
+                <span class="name">Martín Carvajal</span>
+                <span class="title">Compositor</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#biografia">Biografía</a></li>
+                    <li><a href="#trayectoria">Trayectoria</a></li>
+                    <li><a href="#obras">Obras y Estrenos</a></li>
+                    <li><a href="#discografia">Discografía</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sección Principal / Hero -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Creación Sonora & Medios Digitales</h1>
+            <p>Explorando las posibilidades de las nuevas tecnologías aplicadas a la composición musical, la manipulación del sonido a través del gesto y el espacio multicanal.</p>
+        </div>
+    </section>
+
+    <!-- Contenedor Principal de Contenido -->
+    <main class="container">
+        
+        <!-- Sección Biografía con Imagen Integrada -->
+        <section id="biografia" class="section bio-grid">
+            <div class="bio-image-container">
+                <img src="IMG/a.jpeg" alt="Martín Carvajal" class="bio-photo">
+            </div>
+            <div class="card">
+                <h2>Biografía</h2>
+                <p>Nacido en Rosario, provincia de Santa Fe, es un compositor que ha cursado la carrera de Lic. en Composición Musical en la Facultad de Artes de la Universidad Nacional de Córdoba.</p>
+                <p>Su interés por la producción artística con medios electrónicos y digitales lo ha llevado a investigar las posibilidades de las nuevas tecnologías aplicadas a la composición musical, la manipulación del sonido y la creación de obras audiovisuales a través del gesto, el diseño sonoro y la producción de obras en sistemas multicanal.</p>
+            </div>
+        </section>
+
+        <!-- Sección Trayectoria -->
+        <section id="trayectoria" class="section grid">
+            <div class="card">
+                <h3>Investigación y Docencia</h3>
+                <p>Durante su cursado, Martín se ha desempeñado como ayudante alumno en la cátedra de <strong>Técnicas y Materiales Electroacústicos</strong> y ha formado parte del Grupo de investigación <strong>G.I.E.M.</strong>, ambas a cargo del Dr. Sergio Poblete.</p>
+                <p>También ha sido parte activa del proyecto CePIA Abierto <strong>"Electroespacio Acústico"</strong> junto a Basilio Del Boca, Gustavo Alcaraz y Federico Ragessi.</p>
+            </div>
+            
+            <div class="card">
+                <h3>Proyección Internacional</h3>
+                <p>Su última composición electroacústica <strong>"Mushihime"</strong>, para sistema cuadrafónico, fue seleccionada para representar a Argentina en el <em>30th Art Audio Festival</em> (noviembre de 2022) en la ciudad de Cracovia, Polonia.</p>
+                <p>Además, sus obras han sido expuestas en festivales de gran relevancia en países como <strong>Portugal, México, Ecuador, Suiza</strong> y en diferentes ciudades de Argentina.</p>
+            </div>
+        </section>
+
+        <!-- Sección Obras y Proyectos -->
+        <section id="obras" class="section card">
+            <h2>Producción Artística</h2>
+            <p>Martín ha compuesto y estrenado obras para diversas agrupaciones instrumentales, así como música con técnica mixta y obras electroacústicas en formato multicanal, presentadas en diversos espacios de la ciudad de Córdoba y Buenos Aires.
+                En septiembre del 2022 presentó una obra experimental en formato cuadrafónico de manipulación del sonido a través del gesto en el marco del festival "Experimentalia" en el Centro Cultural España Córdoba. 
+            </p>
+            
+            <div class="timeline">
+                <h4>Proyectos Recientes y Futuros</h4>
+                <ul>
+                    <li>
+                        <span class="date">2025</span> 
+                        <p>Composición de la música para la obra de teatro <strong>"Luz al Tiempo"</strong>, estrenada en abril de ese mismo año en el teatro Quinto Deva.
+                        También se ha desempeñado como gestor y organizador del ciclo de música electroacústica <strong>"Jornadas de Música Acusmática"</strong> pertenecientes al LEIM de la Facultad de Artes de la UNC y que se realizaron en los meses de Junio y Octubre en el Museo de la Universidad Nacional de Córdoba.</p>
+                    </li>
+                    <li>
+                        <span class="date">2026</span> 
+                        <p>Actualmente se encuentra componiendo la música que acompañará a la nueva obra del elenco de danza contemporánea <strong>Andanzas</strong> y que se estrenará en Agosto del 2026.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Sección: Discografía (Vinculada a cada link de Bandcamp) -->
+        <section id="discografia" class="section card">
+            <h2>Discografía</h2>
+            <p class="discography-intro">Haz clic sobre las carátulas para escuchar los trabajos en Bandcamp:</p>
+            
+            <div class="disco-grid">
+                
+                <!-- 1. Memorias -->
+                <div class="disco-item">
+                    <a href="https://martin-carvajal.bandcamp.com/album/memorias" target="_blank" class="album-link">
+                        <div class="album-cover-wrapper">
+                            <img src="IMG/1.avif" alt="Memorias" class="album-cover">
+                        </div>
+                    </a>
+                    <h5>Memorias</h5>
+                </div>
+
+                <!-- 2. Postales de lo Desconocido -->
+                <div class="disco-item">
+                    <a href="https://martin-carvajal.bandcamp.com/album/postales-de-lo-desconocido" target="_blank" class="album-link">
+                        <div class="album-cover-wrapper">
+                            <img src="IMG/2.jpg" alt="Postales de lo Desconocido" class="album-cover">
+                        </div>
+                    </a>
+                    <h5>Postales de lo Desconocido</h5>
+                </div>
+
+                <!-- 3. Mushihime -->
+                <div class="disco-item">
+                    <a href="https://martin-carvajal.bandcamp.com/album/mushihime" target="_blank" class="album-link">
+                        <div class="album-cover-wrapper">
+                            <img src="IMG/3.jpg" alt="Mushihime" class="album-cover">
+                        </div>
+                    </a>
+                    <h5>Mushihime</h5>
+                </div>
+
+                <!-- 4. Endless Summer -->
+                <div class="disco-item">
+                    <a href="https://martin-carvajal.bandcamp.com/album/endless-summer-music-for-sunsets-and-drones" target="_blank" class="album-link">
+                        <div class="album-cover-wrapper">
+                            <img src="IMG/4.jpg" alt="Endless Summer" class="album-cover">
+                        </div>
+                    </a>
+                    <h5>Endless Summer: Music for Sunsets and Drones</h5>
+                    <span class="alias">A.K.A. Electro Jellyfish</span>
+                </div>
+
+                <!-- 5. Ultra Midnight Pleasure -->
+                <div class="disco-item">
+                    <a href="https://martin-carvajal.bandcamp.com/album/ultra-midnight-pleasure-single" target="_blank" class="album-link">
+                        <div class="album-cover-wrapper">
+                            <img src="IMG/5.jpg" alt="Ultra Midnight Pleasure" class="album-cover">
+                        </div>
+                    </a>
+                    <h5>Ultra Midnight Pleasure <span class="single-tag">[Single]</span></h5>
+                    <span class="alias">A.K.A. Electro Jellyfish</span>
+                </div>
+
+                <!-- 6. Textura de repetición -->
+                <div class="disco-item">
+                    <a href="https://martin-carvajal.bandcamp.com/album/-" target="_blank" class="album-link">
+                        <div class="album-cover-wrapper">
+                            <img src="IMG/6.jpg" alt="テ ク ス チ ャ の 重 複" class="album-cover">
+                        </div>
+                    </a>
+                    <h5>テ ク ス チ ャ の 重 複</h5>
+                </div>
+
+                <!-- 7. Hygge -->
+                <div class="disco-item">
+                    <a href="https://martin-carvajal.bandcamp.com/album/hygge" target="_blank" class="album-link">
+                        <div class="album-cover-wrapper">
+                            <img src="IMG/7.jpg" alt="Hygge" class="album-cover">
+                        </div>
+                    </a>
+                    <h5>Hygge</h5>
+                </div>
+
+                <!-- 8. Detrás del Sol -->
+                <div class="disco-item">
+                    <a href="https://martin-carvajal.bandcamp.com/album/detr-s-del-sol" target="_blank" class="album-link">
+                        <div class="album-cover-wrapper">
+                            <img src="IMG/8.jpg" alt="Detrás del Sol" class="album-cover">
+                        </div>
+                    </a>
+                    <h5>Detrás del Sol</h5>
+                </div>
+
+            </div>
+            
+            <div class="bandcamp-link-container">
+                <a href="https://martin-carvajal.bandcamp.com/music" target="_blank" class="btn-bandcamp">Escuchar catálogo completo en Bandcamp</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2026 Martín Carvajal. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- ==========================================================================
+       ANEXO DE AUDIO EN MP3 (Control de reproducción al entrar)
+       ========================================================================== -->
+    
+    <!-- Etiqueta de audio oculta. Reemplaza "tu-audio.mp3" por el nombre exacto de tu archivo -->
+    <audio id="bg-audio" src="IMG/intro.mp3" loop></audio>
+
+    <!-- Botón flotante de control (Se muestra si el navegador bloquea el autoplay) -->
+    <div id="audio-control-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 2000; background: #161a22; border: 1px solid #242936; padding: 10px 15px; border-radius: 30px; display: flex; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+        <span style="font-size: 0.8rem; color: #9ca3af; font-family: 'Inter', sans-serif;">Música de fondo</span>
+        <button id="audio-btn" style="background: #4f46e5; color: #ffffff; border: none; padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; cursor: pointer; transition: background 0.3s ease;">
+            Play
+        </button>
+    </div>
+
+    <script>
+        const audio = document.getElementById('bg-audio');
+        const audioBtn = document.getElementById('audio-btn');
+
+        // Función para actualizar el texto del botón según el estado del audio
+        function updateButtonText() {
+            if (audio.paused) {
+                audioBtn.textContent = 'Play';
+                audioBtn.style.background = '#4f46e5';
+            } else {
+                audioBtn.textContent = 'Pausa';
+                audioBtn.style.background = '#e11d48'; // Color rojo suave para la pausa
+            }
+        }
+
+        // Evento para el botón de Play/Pausa
+        audioBtn.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+            updateButtonText();
+        });
+
+        // Intentar reproducir automáticamente al cargar la página
+        window.addEventListener('DOMContentLoaded', () => {
+            // Un pequeño retraso ayuda a que algunos navegadores procesen la intención
+            setTimeout(() => {
+                audio.play().then(() => {
+                    // Si el navegador permitió el autoplay con sonido
+                    updateButtonText();
+                }).catch((error) => {
+                    // Si el navegador bloqueó el autoplay (situación normal)
+                    console.log("Autoplay bloqueado por el navegador. Esperando interacción del usuario.");
+                    updateButtonText();
+                });
+            }, 500);
+        });
+    </script>
+
+</body>
+</html>
