@@ -338,12 +338,12 @@
     color: #9ca3af; /* Texto secundario atenuado */
 }
 
-/* Contenedor que distribuye las 3 tarjetas en columnas iguales */
 .social-links-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     width: 100%;
+    margin-top: 20px;
 }
 
 /* Tarjeta base: Distribución horizontal con logo a la izquierda */
@@ -511,7 +511,7 @@
             
             <div class="card">
                 <h3>Proyección Internacional</h3>
-                <p>Su última composición electroacústica <strong>"Mushihime"</strong>, para sistema cuadrafónico, fue seleccionada para representar a Argentina en el <em>30th Art Audio Festival</em> (noviembre de 2022) en la ciudad de Cracovia, Polonia.</p>
+                <p>Su última composición electroacústica <strong>"Mushihime"</strong>, para sistema cuadrafónico, fue seleccionada para representar a Argentina en el <em>30th Art Audio Festival</em> (noviembre de 2022) en la ciudad de Cracovia, <strong> Polonia</strong>.</p>
                 <p>Además, sus obras han sido expuestas en festivales de gran relevancia en países como <strong>Portugal, México, Ecuador, Suiza</strong> y en diferentes ciudades de Argentina.</p>
             </div>
         </section>
@@ -640,34 +640,35 @@
 
                
     </main>
-    <section id="contacto" class="section card">
-    <h2>Contacto</h2>
-    <p class="contact-intro">Podés comunicarte directamente a través de mis redes sociales o por correo electrónico:</p>
-    
-    <div class="social-links-grid">
-        <a href="https://www.instagram.com/martin.t.xo/" target="_blank" class="social-card instagram">
-            <img src="IMG/instagram.png" alt="Instagram" class="social-card-img">
-            <div class="social-card-text">
-                <strong>Instagram</strong>
-                <span>@martin.t.xo</span>
-            </div>
-        </a>
-
-        <a href="mailto:tu-correo@gmail.com" class="social-card gmail">
-            <img src="IMG/gmail.png" alt="Gmail" class="social-card-img">
-            <div class="social-card-text">
-                <strong>Correo Electrónico</strong>
-                <span>lordofthekeyboard@gmail.com</span>
-            </div>
-        </a>
+    <section id="contacto" class="section">
+    <div class="container card"> <h2>Contacto</h2>
+        <p class="contact-intro">Podés comunicarte directamente a través de mis redes sociales o por email:</p>
         
-        <a href="https://www.linkedin.com/in/mart%C3%ADn-carvajal-1a1520360/" target="_blank" class="social-card linkedin">
-            <img src="IMG/linkedin.png" alt="LinkedIn" class="social-card-img">
-            <div class="social-card-text">
-                <strong>LinkedIn</strong>
-                <span>Perfil Profesional</span>
-            </div>
-        </a>
+        <div class="social-links-grid">
+            <a href="https://www.instagram.com/martin.t.xo/" target="_blank" class="social-card instagram">
+                <img src="IMG/instagram.png" alt="Instagram" class="social-card-img">
+                <div class="social-card-text">
+                    <strong>Instagram</strong>
+                    <span>@martin.t.xo</span>
+                </div>
+            </a>
+
+            <a href="mailto:tu-correo@gmail.com" class="social-card gmail">
+                <img src="IMG/gmail.png" alt="Gmail" class="social-card-img">
+                <div class="social-card-text">
+                    <strong>Correo Electrónico</strong>
+                    <span>tu-correo@gmail.com</span>
+                </div>
+            </a>
+            
+            <a href="https://www.linkedin.com/in/tu-perfil" target="_blank" class="social-card linkedin">
+                <img src="IMG/linkedin.png" alt="LinkedIn" class="social-card-img">
+                <div class="social-card-text">
+                    <strong>LinkedIn</strong>
+                    <span>Perfil Profesional</span>
+                </div>
+            </a>
+        </div>
     </div>
 </section>
 
