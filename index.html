@@ -455,6 +455,24 @@
                 flex-direction: column;
                 gap: 5px;
             }
+           /* Estilo para el switch de idioma directo */
+.lang-switch-btn {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.lang-switch-btn:hover {
+    color: var(--text-main) !important;
+    border-color: var(--accent-color);
+    background-color: rgba(79, 70, 229, 0.1);
+    box-shadow: 0 0 10px rgba(79, 70, 229, 0.2);
+}
         }
     </style>
 </head>
@@ -467,14 +485,23 @@
                 <span class="name">Martín Carvajal</span>
                 <span class="title">Compositor</span>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="#biografia">Biografía</a></li>
-                    <li><a href="#trayectoria">Trayectoria</a></li>
-                    <li><a href="#obras">Obras y Estrenos</a></li>
-                    <li><a href="#discografia">Discografía</a></li>
-                </ul>
-            </nav>
+<nav>
+    <ul>
+        <li><a href="#biografia">Biografía</a></li>
+        <li><a href="#trayectoria">Trayectoria</a></li>
+        <li><a href="#obras">Obras y Estrenos</a></li>
+        <li><a href="#discografia">Discografía</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+        
+        <li>
+            <a href="https://translate.google.com/translate?sl=es&tl=en&u=https://tu-usuario.github.io/tu-repositorio/" 
+               target="_blank" 
+               class="lang-switch-btn">
+               EN
+            </a>
+        </li>
+    </ul>
+</nav>
         </div>
     </header>
 
@@ -735,6 +762,6 @@
             }, 500);
         });
     </script>
-
+   
 </body>
 </html>
